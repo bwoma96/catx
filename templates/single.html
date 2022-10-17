@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{%block content%}
+<div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url(static/img/blog-1.jpg)">
+  <div class="container text-center">
+    <h1 class="display-2 mb-4">{{post.title}}</h1>
+  </div>
+</div>  <!-- Contact Form Section -->
+<section id="single-content" class="bg-white">
+    <diiv class="container">
+        <div class="section-content blog-content">
+            
+            <div class="row">
+                <!-- Single Content Holder -->
+                <div class="col-md-8 offset-md-2 mt-4">
+                    <h4>{{post.title}}</h4>
+                    <img class="float-left" width="320px" src="{{url_for('static',filename='img/blog-4.jpg')}}" alt="">
+                    <p>{{post.slug}}</p>
+                    <p>{{post.content}}</p>
+                    <p>Consectetur adipisicing elit. Sint, corrupti deleniti, rem mollitia quam cum quo, animi ipsa praesentium officiis ducimus! Modi aperiam, nulla ipsum, totam natus consequuntur fugiat blanditiis.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste harum, ut magni cupiditate. Nihil ipsum debitis voluptates voluptate illum consectetur sapiente dolorem facilis, eum nobis sequi eveniet assumenda vel voluptatem!</p>
+                </div>
+                <br/>
+                
+        </div>
+    </div>
+    
+                  
+                  <br/>
+                
+
+                <br/>
+              
+
+
+
+
+             
+ {%if post.comments|length>0%}
+
+<p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    View  {{post.comments|length}}  comments
+  </a>
+  
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    {% for comment in post.comments%}
+
+     
+                <a href="/post/{{comment.username}}">{{comment.username}}</a>:{{comment.text}}
+
+                
+                <small class="text-muted">{{comment.date_added}}</small>
+
+                <a class="btn btn-primary"  href="{{url_for('delete_comment',id=comment.id)}}" role="button"  aria-controls="">
+    delete comment
+  </a>
+                {%endfor%}<br/>
+              </div>
+              </div>
+  </div>
+</div>
+{%else%}
+ <div class="text-muted">No comment</div>
+       {%endif%}
+  
+
+
+
+      
+      
+    
+       <form class="input-group mb-3" method='POST' action="/create-comment/{{post.id}}">
+                  <input type="text" id="text" name="text" class="form-control" placeholder="Leave a comment!" />
+                  <button type="submit" class="btn btn-primary">Comment</button>
+
+            
+  
+
+
+</form>
+</div>
+
+
+
+
+
+
+
+
+
+</section>
+<!-- End of Contact Form Section -->  <!-- Features Section-->
+<section id="cta" class="bg-fixed overlay" style="background-image: url(static/img/bg.jpg);">
+    <div class="container">
+        <div class="section-content" data-aos="fade-up">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="mb-2">Article by</h2>
+                    <p></p>
+                    <a class="btn btn-outline-primary btn-lg">{{post.poster.username}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock%}

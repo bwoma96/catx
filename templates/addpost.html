@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{%block content%}
+<div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url(static/img/bg.jpg)">
+    
+
+   <div class="container text-center">
+    <h1>add blogposts</h1>
+     <div class="col-md-8 offset-md-2 contact-form-holder mt-4" data-aos="fade-up">
+
+    <div class="shadow p-3 mb-5 bg-body rounded">
+  <form method="POST">
+    {{form.hidden_tag()}}
+    {{form.title.label (class="form-label")}}
+    {{form.title(class="form-control")}}
+    
+    
+    
+    {{form.slug.label (class="form-label")}}
+    {{form.slug(class="form-control")}}
+    {{form.category.label (class="form-label")}}
+    {{form.category(class="form-control")}}
+    {{form.content.label (class="form-label")}}
+    {{form.content(class="form-control",rows="5")}}
+   
+    {{form.submit(class="btn btn-primary btn-shadow btn-lg")}}
+    {%endblock%}
+
+  </form>
+</div>
+  </div>
+</div>
+</div>

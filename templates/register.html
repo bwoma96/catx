@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{%block content%}
+<div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url(static/img/bg.jpg)">
+    
+
+   <div class="container text-center">
+    <h1>register</h1>
+     <div class="col-md-8 offset-md-2 contact-form-holder mt-4" data-aos="fade-up">
+
+    <div class="shadow p-3 mb-5 bg-body rounded">
+  <form method="POST">
+    {{form.hidden_tag()}}
+    {{form.name.label(class="form-label")}}
+    {{form.name(class="form-control")}}
+    {{form.username.label(class="form-label")}}
+    {{form.username(class="form-control")}}
+    
+    {{form.email.label (class="form-label")}}
+    {{form.email(class="form-control")}}
+    {{form.password_hash.label (class="form-label")}}
+    {{form.password_hash(class="form-control")}}
+    {{form.password_hash2.label (class="form-label")}}
+    {{form.password_hash2(class="form-control")}}
+   
+    {{form.submit(class="btn btn-primary btn-shadow btn-lg")}}
+
+  </form>
+</div>
+  </div>
+</div>
+</div>
+{%for our_user in our_users%}
+<a href="{{url_for('update',id=our_user.id)}}" >{{our_user.name}}</a>{{our_user.id}}-{{our_user.name}}{{our_user.email}}{{our_user.name}}<a href="{{url_for('delete',id=our_user.id)}}" >delete</a> Pw:{{our_user.password_hash}}<br/>
+{%endfor%}
+{% endblock %}
+  
+  

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{%block content%}
+
+<div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url(static/img/bg.jpg)">
+    
+
+   <div class="container text-center">
+    <h1>Login</h1>
+     <div class="col-md-8 offset-md-2 contact-form-holder mt-4" data-aos="fade-up">
+
+    <div class="shadow p-3 mb-5 bg-body rounded">
+  <form method="POST">
+    {{form.hidden_tag()}}
+    
+    {{form.username.label (class="form-label")}}
+    {{form.username(class="form-control")}}
+    {{form.password.label (class="form-label")}}
+    {{form.password(class="form-control")}}
+ 
+   
+    {{form.submit(class="btn btn-primary btn-shadow btn-lg")}}
+
+  </form>
+</div>
+  </div>
+</div>
+</div>
+{%endblock%}
