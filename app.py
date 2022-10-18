@@ -18,8 +18,7 @@ from werkzeug.datastructures import  FileStorage
 app = Flask(__name__)
 
 #users database
-app.config['SQLALCHEMY_DATABASE_URI']='c3820655035feb16f0d667dce51cefe565c38472ef47cff25468ea68bc117489@ec2-44-209-24-62.compute-1.amazonaws.com:5432/dc6p0v55kg5ckf
-'
+app.config['SQLALCHEMY_DATABASE_URI']=' postgres://gjulhateljtekl:c3820655035feb16f0d667dce51cefe565c38472ef47cff25468ea68bc117489@ec2-44-209-24-62.compute-1.amazonaws.com:5432/dc6p0v55kg5ckf'
 app.config['SECRET_KEY']="superscretkey"
 db=SQLAlchemy(app)
 migrate=Migrate(app,db)
